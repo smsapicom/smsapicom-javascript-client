@@ -78,7 +78,7 @@ function displayError(err){
 
 ```
 
-# Dokumentacja
+# Documentation
 
 REST API documentation: [http://www.smsapi.com/rest](http://www.smsapi.com/rest).
 
