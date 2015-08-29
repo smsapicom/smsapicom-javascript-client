@@ -88,8 +88,6 @@ Requests are returning [Promises/A+](https://promisesaplus.com). Used implementa
 
 * message
     * sms
-    * mms
-    * vms
 * points
     * get
 * sender
@@ -106,19 +104,6 @@ Requests are returning [Promises/A+](https://promisesaplus.com). Used implementa
     * update
     * get
     * list
-* phonebook (deprecated)
-    * contact
-        * add
-        * get
-        * update
-        * list
-        * delete
-    * group
-        * get
-        * add
-        * update
-        * list
-        * delete
 * contacts
     * list
     * add
