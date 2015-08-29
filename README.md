@@ -1,22 +1,22 @@
-# SMSAPI JavaScript (node.js) Client
+# SMSAPI.com JavaScript (node.js) Client
 
 [![npm version](https://badge.fury.io/js/smsapi.svg)](http://badge.fury.io/js/smsapi)
 
-Klient JavaScript pozwalający na wysyłanie wiadomości SMS, MMS, VMS oraz zarządzanie kontem w serwisie SMSAPI.pl
+JavaScript client for sending SMS and account management on SMSAPI.com
 
-## Instalacja (node.js)
+## Installation (node.js)
 
 ```bash
 
-$ npm install smsapi --save
+$ npm install smsapicom --save
 
 ```
 
-## Przykład użycia
+## Example
 
 ```javascript
 
-var SMSAPI = require('smsapi'),
+var SMSAPI = require('smsapicom'),
     smsapi = new SMSAPI();
 
 smsapi.authentication
@@ -29,7 +29,7 @@ function sendMessage(){
     return smsapi.message
         .sms()
         .from('Info')
-        .to('605xxxxxx')
+        .to('+48605xxxxxx')
         .message('My first message!')
         .execute(); // return Promise
 }
@@ -44,13 +44,13 @@ function displayError(err){
 
 ```
 
-## Przykład wykorzystania serwera zapasowego
+## Example (backup server)
 
 ```javascript
 
 var SMSAPI = require('smsapi'),
     smsapi = new SMSAPI({
-    	server: ‘https://api2.smsapi.pl/'
+    	server: ‘https://api2.smsapi.com/'
     });
 
 smsapi.authentication
@@ -80,11 +80,11 @@ function displayError(err){
 
 # Dokumentacja
 
-Dokumentacja interfejsu REST API znajduje się pod adresem [http://www.smsapi.pl/rest](http://www.smsapi.pl/rest).
+REST API documentation: [http://www.smsapi.com/rest](http://www.smsapi.com/rest).
 
-Wszystkie odwołania do API zwracają obiekt `Promise` zgodny ze standardem [Promises/A+](https://promisesaplus.com). Użyta implementacja: https://github.com/tildeio/rsvp.js
+Requests are returning [Promises/A+](https://promisesaplus.com). Used implementation: https://github.com/tildeio/rsvp.js
 
-## Dostępne operacje
+## List of available operations
 
 * message
     * sms
@@ -152,11 +152,11 @@ Wszystkie odwołania do API zwracają obiekt `Promise` zgodny ze standardem [Pro
             * get
             * delete
 
-## Przykłady
+## Examples
 
-Dodatkowe przykłady użycia dostępnych operacji można znaleźć w testach (./test).
+Additional examples can be found in test folder (./test).
 
-## Testy
+## Testing
 
 ```bash
 
@@ -166,6 +166,6 @@ $ npm test
 
 ```
 
-# Licencja
+# License
 
 [Apache 2.0 License](LICENSE)

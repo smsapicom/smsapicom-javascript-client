@@ -16,10 +16,10 @@ describe('sms', function(){
     });
 
     describe('sms', function(){
-        it('should send eco sms', function(done){
+        it('should send sms', function(done){
             smsapi.message
                 .sms()
-                .eco()
+                .from('Info')
                 .to(config.testNumber)
                 .test()
                 .message('Test message')
@@ -37,7 +37,7 @@ describe('sms', function(){
         it('should send test sms with details', function(done){
             smsapi.message
                 .sms()
-                .eco()
+                .from('Info')
                 .to(config.testNumber)
                 .test()
                 .message('Test message')
@@ -55,10 +55,10 @@ describe('sms', function(){
                 .catch(done);
         });
 
-        it('should send eco sms to array of numbers', function(done){
+        it('should send sms to array of numbers', function(done){
             smsapi.message
                 .sms()
-                .eco()
+                .from('Info')
                 .to([config.testNumber])
                 .test()
                 .message('Test message')
@@ -77,7 +77,7 @@ describe('sms', function(){
 
             smsapi.message
                 .sms()
-                .eco()
+                .from('Info')
                 .to(config.testNumber)
                 .message('Test message')
                 .date(date)
@@ -102,58 +102,4 @@ describe('sms', function(){
         });
     });
 
-    describe('mms', function(){
-        it('should send mms', function(done){
-            var smil = '<smil><head><layout><root-layout height="600" width="425"/> <region id="Image" top="0" left="0" height="100%" width="100%" fit="meet"/></layout></head><body><par dur="5000ms"><img src="http://www.smsapi.pl/assets/img/mms.jpg" region="Image"></img></par></body></smil>';
-
-            smsapi.message
-                .mms()
-                .to(config.testNumber)
-                .subject('Test message')
-                .smil(smil)
-                .test()
-                .execute()
-                .then(function(result){
-                    assert.property(result, 'count');
-                    assert.equal(result.count, 1);
-                    assert.isArray(result.list);
-                    done();
-                })
-                .catch(done);
-        });
-    });
-
-    describe('vms', function(){
-        it('should send vms (use tts)', function(done){
-            smsapi.message
-                .vms()
-                .to(config.testNumber)
-                .tts('Test message')
-                .test()
-                .execute()
-                .then(function(result){
-                    assert.property(result, 'count');
-                    assert.equal(result.count, 1);
-                    assert.isArray(result.list);
-                    done();
-                })
-                .catch(done);
-        });
-
-        it('should send vms (use local .wav file)', function(done){
-            smsapi.message
-                .vms()
-                .to(config.testNumber)
-                .localFile(__dirname + '/files/vms.wav')
-                .test()
-                .execute()
-                .then(function(result){
-                    assert.property(result, 'count');
-                    assert.equal(result.count, 1);
-                    assert.isArray(result.list);
-                    done();
-                })
-                .catch(done);
-        });
-    });
 });

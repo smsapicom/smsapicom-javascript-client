@@ -56,7 +56,7 @@ describe('sender', function(){
             .execute()
             .then(done)
             .catch(function(err){
-                assert.equal(err.message, 'Nie można ustawić nieaktywnego pola nadawcy jako domyślne');
+                assert.equal(err.message, 'Cannot set to default not active sendername!');
                 done();
             })
             .catch(done);

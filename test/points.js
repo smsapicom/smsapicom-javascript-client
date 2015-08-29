@@ -22,21 +22,4 @@ describe('points', function(){
             })
             .catch(done);
     });
-
-    it('should get points with details', function(done){
-        smsapi.points.get()
-            .details()
-            .execute()
-            .then(function(result){
-                assert.property(result, 'points');
-                assert.property(result, 'proCount');
-                assert.property(result, 'ecoCount');
-                assert.property(result, 'mmsCount');
-                assert.property(result, 'vmsGsmCount');
-                assert.property(result, 'vmsLandCount');
-                done();
-            })
-            .catch(done);
-    });
-
 });
