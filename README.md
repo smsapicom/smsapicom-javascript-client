@@ -1,6 +1,6 @@
 # SMSAPI.com JavaScript (node.js) Client
 
-[![npm version](https://badge.fury.io/js/smsapi.svg)](http://badge.fury.io/js/smsapi)
+[![npm version](https://badge.fury.io/js/smsapicom.svg)](http://badge.fury.io/js/smsapicom)
 
 JavaScript client for sending SMS and account management on SMSAPI.com
 
