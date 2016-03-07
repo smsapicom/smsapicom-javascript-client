@@ -78,6 +78,55 @@ function displayError(err){
 
 ```
 
+# Authentication
+
+Library supports plain text password and md5 hash as a method of authentication. By default [Basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication) is used.
+
+## Plain text example
+
+```javascript
+var promise = smsapi.authentication
+    .login('username', 'password');
+```
+
+## md5 hash example
+
+```javascript
+var promise = smsapi.authentication
+    .loginHashed('username', '5f4dcc3b5aa765d61d8327deb882cf99');
+```
+
+## OAuth
+
+To use OAuth add parameters while SMSAPI object creation:
+
+* `oauth.clientId`
+* `oauth.clientSecret`
+* `oauth.grantType` (opcjonalnie)
+* `oauth.scope` (opcjonalnie)
+
+```javascript
+var SMSAPI = require('smsapi'),
+    smsapi = new SMSAPI({
+        oauth: {
+            clientId: 'your-client-id',
+            clientSecret: 'your-client-secret'
+        }
+    });
+
+var promise = smsapi.authentication
+    .login('username', 'password');
+```
+
+Library manages auth token internally.
+
+Token will expire after 60 minutes. To refresh token use `refreshToken()` method.
+
+```javascript
+var promise = smsapi.authentication
+    .refreshToken();
+```
+
 # Documentation
 
 REST API documentation: [http://www.smsapi.com/rest](http://www.smsapi.com/rest).
