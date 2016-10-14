@@ -50,7 +50,7 @@ function displayError(err){
 
 var SMSAPI = require('smsapi'),
     smsapi = new SMSAPI({
-    	server: ‘https://api2.smsapi.com/'
+    	server: 'https://api2.smsapi.com/'
     });
 
 smsapi.authentication
