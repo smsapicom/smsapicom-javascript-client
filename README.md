@@ -98,34 +98,41 @@ var promise = smsapi.authentication
 
 ## OAuth
 
-To use OAuth add parameters while SMSAPI object creation:
+To use OAuth add parameter while SMSAPI object creation:
 
-* `oauth.clientId`
-* `oauth.clientSecret`
-* `oauth.grantType` (opcjonalnie)
-* `oauth.scope` (opcjonalnie)
+* `oauth.accessToken`
 
 ```javascript
 var SMSAPI = require('smsapi'),
     smsapi = new SMSAPI({
         oauth: {
-            clientId: 'your-client-id',
-            clientSecret: 'your-client-secret'
+            accessToken: 'your-access-token'
         }
     });
 
-var promise = smsapi.authentication
-    .login('username', 'password');
+sendMessage()
+    .then(displayResult)
+    .catch(displayError);
+
+function sendMessage(){
+    return smsapi.message
+        .sms()
+        .from('Info')
+        .to('605xxxxxx')
+        .message('My first message!')
+        .execute(); // return Promise
+}
+
+function displayResult(result){
+    console.log(result);
+}
+
+function displayError(err){
+    console.error(err);
+}
 ```
 
-Library manages auth token internally.
-
-Token will expire after 60 minutes. To refresh token use `refreshToken()` method.
-
-```javascript
-var promise = smsapi.authentication
-    .refreshToken();
-```
+Token can be generated in SMSAPI panel, under address: https://ssl.smsapi.com/webapp#/oauth/manage
 
 # Documentation
 
