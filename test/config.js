@@ -9,8 +9,7 @@ var _      = require('lodash'),
             password: ''
         },
         oauth: {
-            clientId: 'xxx',
-            clientSecret: 'xxx'
+            accessToken: ''
         }
     };
 
