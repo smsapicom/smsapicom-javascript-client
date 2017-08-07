@@ -1,6 +1,6 @@
 {
   "name": "smsapicom",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "JavaScript official client for sending SMS and account management on SMSAPI.com",
   "main": "index.js",
   "scripts": {
